@@ -11,6 +11,7 @@ import SwiftData
 struct TodayView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: TodayViewModel = TodayViewModel()
+    @State private var isPresentingAddHabit = false
 
     var body: some View {
         NavigationStack {
@@ -24,10 +25,25 @@ struct TodayView: View {
                         } label: {
                             Image(systemName: habit.isCompletedToday() ? "checkmark.circle.fill" : "circle")
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
             .navigationTitle("Today")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isPresentingAddHabit = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $isPresentingAddHabit, onDismiss: {
+                viewModel.loadTodayHabits()
+            }) {
+                AddHabitView()
+            }
         }
         .onAppear {
             viewModel.injectContext(modelContext)
@@ -35,3 +51,4 @@ struct TodayView: View {
         }
     }
 }
+

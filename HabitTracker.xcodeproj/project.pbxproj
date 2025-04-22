@@ -20,6 +20,8 @@
 		827FD2842DB82A0300ED861E /* HabitDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2832DB82A0000ED861E /* HabitDataService.swift */; };
 		827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2852DB82E3B00ED861E /* SettingsView.swift */; };
 		827FD2882DB82E7F00ED861E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2872DB82E7E00ED861E /* StatsView.swift */; };
+		827FD28B2DB832E800ED861E /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD28A2DB832E600ED861E /* AddHabitView.swift */; };
+		827FD28D2DB8330200ED861E /* WeekdayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD28C2DB8330100ED861E /* WeekdayPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		827FD2832DB82A0000ED861E /* HabitDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataService.swift; sourceTree = "<group>"; };
 		827FD2852DB82E3B00ED861E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		827FD2872DB82E7E00ED861E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		827FD28A2DB832E600ED861E /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		827FD28C2DB8330100ED861E /* WeekdayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		827FD2662DB8266600ED861E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				827FD28C2DB8330100ED861E /* WeekdayPicker.swift */,
+				827FD28A2DB832E600ED861E /* AddHabitView.swift */,
 				827FD2872DB82E7E00ED861E /* StatsView.swift */,
 				827FD2852DB82E3B00ED861E /* SettingsView.swift */,
 				827FD2652DB8266600ED861E /* TodayView.swift */,
@@ -322,7 +328,9 @@
 				827FD2842DB82A0300ED861E /* HabitDataService.swift in Sources */,
 				827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */,
 				827FD26E2DB8266600ED861E /* TodayView.swift in Sources */,
+				827FD28D2DB8330200ED861E /* WeekdayPicker.swift in Sources */,
 				827FD2882DB82E7F00ED861E /* StatsView.swift in Sources */,
+				827FD28B2DB832E800ED861E /* AddHabitView.swift in Sources */,
 				827FD26F2DB8266600ED861E /* ContentView.swift in Sources */,
 				827FD2702DB8266600ED861E /* HabitTrackerApp.swift in Sources */,
 				827FD2712DB8266600ED861E /* Habit.swift in Sources */,
