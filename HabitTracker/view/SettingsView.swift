@@ -10,24 +10,22 @@ import SwiftData
 
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var habits: [Habit]
-
-    @AppStorage("isDarkMode") private var isDarkMode = false
-    @State private var showResetAlert = false
+    @StateObject private var viewModel = SettingsViewModel()
 
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: Text("Appearance")) {
-                    Toggle("Dark Mode", isOn: $isDarkMode)
-                        .onChange(of: isDarkMode) { _ in
-                            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+                    Picker("Theme", selection: $viewModel.selectedTheme) {
+                        ForEach(ThemeMode.allCases) { mode in
+                            Text(mode.label).tag(mode)
                         }
+                    }
                 }
 
                 Section(header: Text("Data")) {
                     Button("Reset All Habits", role: .destructive) {
-                        showResetAlert = true
+                        viewModel.showResetAlert = true
                     }
                 }
 
@@ -42,19 +40,15 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
-            .alert("Delete all habits?", isPresented: $showResetAlert) {
+            .alert("Delete all habits?", isPresented: $viewModel.showResetAlert) {
                 Button("Cancel", role: .cancel) {}
                 Button("Delete", role: .destructive) {
-                    resetAllHabits()
+                    viewModel.resetAllHabits()
                 }
             }
         }
-    }
-
-    private func resetAllHabits() {
-        for habit in habits {
-            modelContext.delete(habit)
+        .onAppear {
+            viewModel.injectContext(modelContext)
         }
-        try? modelContext.save()
     }
 }
