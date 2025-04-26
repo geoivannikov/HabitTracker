@@ -36,6 +36,20 @@ struct AddHabitView: View {
                         DatePicker("Time", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
                     }
                 }
+                
+                Section(header: Text("Categories list (AI-Generated)")) {
+                    ForEach(HabitCategory.allCases, id: \.self) { category in
+                        HStack {
+                            Text(category.rawValue)
+                                .font(.headline)
+                            Spacer()
+                            Circle()
+                                .fill(category.color)
+                                .frame(width: 20, height: 20)
+                        }
+                        .padding(.horizontal)
+                    }
+                }
             }
             .navigationTitle("New Habit")
             .toolbar {

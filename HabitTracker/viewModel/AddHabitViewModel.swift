@@ -32,14 +32,14 @@ final class AddHabitViewModel: ObservableObject {
             errorMessage = "Please fill in all required fields."
             return false
         }
+        
+        let predictor = HabitCategoryPredictor()
+        let category = HabitCategory(categoryName: predictor.predictCategory(for: name))
 
-        let habit = Habit(
-            name: name,
-            scheduledDays: Array(selectedDays),
-            reminderTime: hasReminder ? reminderTime : nil,
-            colorHex: "#34C759",
-            iconName: "checkmark"
-        )
+        let habit = Habit(name: name,
+                          category: category,
+                          scheduledDays: Array(selectedDays),
+                          reminderTime: hasReminder ? reminderTime : nil)
 
         do {
             try service.create(habit)

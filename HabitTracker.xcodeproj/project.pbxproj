@@ -27,6 +27,9 @@
 		827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2922DB8370400ED861E /* StatsViewModel.swift */; };
 		827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2942DB9792600ED861E /* DatabaseModel.swift */; };
 		827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */; };
+		82E8E30E2DBD5D9100136A04 /* HabitClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 82E8E30D2DBD5D9000136A04 /* HabitClassifier.mlmodel */; };
+		82E8E3102DBD5EAB00136A04 /* HabitCategoryPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8E30F2DBD5EA800136A04 /* HabitCategoryPredictor.swift */; };
+		82E8E3122DBD7A6600136A04 /* HabitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8E3112DBD7A6500136A04 /* HabitCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		827FD2922DB8370400ED861E /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		827FD2942DB9792600ED861E /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
+		82E8E30D2DBD5D9000136A04 /* HabitClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HabitClassifier.mlmodel; sourceTree = "<group>"; };
+		82E8E30F2DBD5EA800136A04 /* HabitCategoryPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCategoryPredictor.swift; sourceTree = "<group>"; };
+		82E8E3112DBD7A6500136A04 /* HabitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,7 @@
 		827FD26D2DB8266600ED861E /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				82E8E30C2DBD5D4E00136A04 /* ml */,
 				827FD27E2DB8267C00ED861E /* services */,
 				827FD27D2DB8267400ED861E /* model */,
 				827FD2802DB826B500ED861E /* viewModel */,
@@ -176,6 +183,7 @@
 		827FD27D2DB8267400ED861E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				82E8E3112DBD7A6500136A04 /* HabitCategory.swift */,
 				827FD2942DB9792600ED861E /* DatabaseModel.swift */,
 				827FD2902DB8361C00ED861E /* ThemeMode.swift */,
 				827FD26C2DB8266600ED861E /* Habit.swift */,
@@ -200,6 +208,15 @@
 				827FD28E2DB8359A00ED861E /* SettingsViewModel.swift */,
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		82E8E30C2DBD5D4E00136A04 /* ml */ = {
+			isa = PBXGroup;
+			children = (
+				82E8E30F2DBD5EA800136A04 /* HabitCategoryPredictor.swift */,
+				82E8E30D2DBD5D9000136A04 /* HabitClassifier.mlmodel */,
+			);
+			path = ml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +363,14 @@
 				827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */,
 				827FD28D2DB8330200ED861E /* WeekdayPicker.swift in Sources */,
 				827FD2882DB82E7F00ED861E /* StatsView.swift in Sources */,
+				82E8E3102DBD5EAB00136A04 /* HabitCategoryPredictor.swift in Sources */,
 				827FD2912DB8361D00ED861E /* ThemeMode.swift in Sources */,
 				827FD28B2DB832E800ED861E /* AddHabitView.swift in Sources */,
+				82E8E3122DBD7A6600136A04 /* HabitCategory.swift in Sources */,
 				827FD26F2DB8266600ED861E /* ContentView.swift in Sources */,
 				827FD28F2DB8359B00ED861E /* SettingsViewModel.swift in Sources */,
 				827FD2702DB8266600ED861E /* HabitTrackerApp.swift in Sources */,
+				82E8E30E2DBD5D9100136A04 /* HabitClassifier.mlmodel in Sources */,
 				827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */,
 				827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */,
 				827FD2712DB8266600ED861E /* Habit.swift in Sources */,

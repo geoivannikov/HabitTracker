@@ -36,6 +36,9 @@ struct StatsView: View {
                 Spacer()
             }
             .padding()
+            .onAppear {
+                viewModel.loadHabits()
+            }
         }
     }
 

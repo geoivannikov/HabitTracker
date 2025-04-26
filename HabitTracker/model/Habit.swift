@@ -12,25 +12,22 @@ import SwiftData
 final class Habit: DatabaseModel {
     @Attribute(.unique) var id: UUID
     var name: String
+    var category: HabitCategory
     var scheduledDays: [Int]
     var reminderTime: Date?
-    var colorHex: String
-    var iconName: String
     var lastCompletionDate: Date?
 
     init(id: UUID = UUID(),
          name: String,
+         category: HabitCategory,
          scheduledDays: [Int],
          reminderTime: Date?,
-         colorHex: String,
-         iconName: String,
          lastCompletionDate: Date? = nil) {
         self.id = id
         self.name = name
+        self.category = category
         self.scheduledDays = scheduledDays
         self.reminderTime = reminderTime
-        self.colorHex = colorHex
-        self.iconName = iconName
         self.lastCompletionDate = lastCompletionDate
     }
 }

@@ -22,6 +22,9 @@ struct TodayView: View {
                 } else {
                     ForEach(viewModel.todayHabits) { habit in
                         HStack {
+                            Circle()
+                                .fill(habit.category.color)
+                                .frame(width: 20, height: 20)
                             Text(habit.name)
                             Spacer()
                             Button {

@@ -20,7 +20,7 @@ class StatsViewModel: ObservableObject {
     }
 
     func loadHabits() {
-        habits = try! service.fetchAll(of: Habit.self)
+        habits = try! service.fetch(of: Habit.self)
     }
 
     var totalCompletedCount: Int {
