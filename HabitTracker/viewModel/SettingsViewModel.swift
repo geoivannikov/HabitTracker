@@ -12,6 +12,7 @@ import SwiftUI
 @MainActor
 class SettingsViewModel: ObservableObject {
     @Published var showResetAlert = false
+    @Published var errorMessage: String?
     @Published var selectedTheme: ThemeMode = .system {
         didSet {
             UserDefaults.standard.set(selectedTheme.rawValue, forKey: "themeMode")
@@ -39,6 +40,10 @@ class SettingsViewModel: ObservableObject {
     }
 
     func resetAllHabits() {
-        try? service.deleteAll(of: Habit.self)
+        do {
+            try service.deleteAll(of: Habit.self)
+        } catch {
+            errorMessage = "Failed to reset habits: \(error.localizedDescription)"
+        }
     }
 }

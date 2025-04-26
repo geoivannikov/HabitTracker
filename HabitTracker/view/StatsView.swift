@@ -11,6 +11,7 @@ import SwiftData
 struct StatsView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: StatsViewModel
+    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
@@ -31,7 +32,18 @@ struct StatsView: View {
                 Text("This Week")
                     .font(.headline)
 
-                weeklyChartView()
+                VStack(alignment: .leading) {
+                    ForEach(viewModel.weeklyData, id: \.0) { (day, count) in
+                        HStack {
+                            Text(day)
+                                .frame(width: 40, alignment: .leading)
+                            Rectangle()
+                                .fill(.blue)
+                                .frame(width: CGFloat(count * 20), height: 10)
+                            Text("\(count)")
+                        }
+                    }
+                }
 
                 Spacer()
             }
@@ -39,22 +51,16 @@ struct StatsView: View {
             .onAppear {
                 viewModel.loadHabits()
             }
-        }
-    }
-
-    @ViewBuilder
-    private func weeklyChartView() -> some View {
-        VStack(alignment: .leading) {
-            ForEach(viewModel.weeklyData, id: \.0) { (day, count) in
-                HStack {
-                    Text(day)
-                        .frame(width: 40, alignment: .leading)
-                    Rectangle()
-                        .fill(.blue)
-                        .frame(width: CGFloat(count * 20), height: 10)
-                    Text("\(count)")
+            .alert("Error", isPresented: $isShowingError) {
+                Button("OK", role: .cancel) {
+                    viewModel.errorMessage = nil
                 }
+            } message: {
+                Text(viewModel.errorMessage ?? "An unknown error occurred.")
             }
+        }
+        .onReceive(viewModel.$errorMessage) { message in
+            isShowingError = message != nil
         }
     }
     

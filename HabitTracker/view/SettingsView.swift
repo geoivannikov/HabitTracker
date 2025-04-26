@@ -10,6 +10,7 @@ import SwiftData
 
 struct SettingsView: View {
     @StateObject private var viewModel: SettingsViewModel
+    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
@@ -45,9 +46,19 @@ struct SettingsView: View {
                     viewModel.resetAllHabits()
                 }
             }
+            .alert("Error", isPresented: $isShowingError) {
+                Button("OK", role: .cancel) {
+                    viewModel.errorMessage = nil
+                }
+            } message: {
+                Text(viewModel.errorMessage ?? "An unknown error occurred.")
+            }
+        }
+        .onReceive(viewModel.$errorMessage) { message in
+            isShowingError = message != nil
         }
     }
-    
+
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: SettingsViewModel(context: modelContext))
     }

@@ -12,6 +12,7 @@ import SwiftUI
 @MainActor
 class StatsViewModel: ObservableObject {
     @Published var habits: [Habit] = []
+    @Published var errorMessage: String?
 
     private let service: DatabaseService
 
@@ -20,7 +21,11 @@ class StatsViewModel: ObservableObject {
     }
 
     func loadHabits() {
-        habits = try! service.fetch(of: Habit.self)
+        do {
+            habits = try service.fetch(of: Habit.self)
+        } catch {
+            errorMessage = "Failed to load habits: \(error.localizedDescription)"
+        }
     }
 
     var totalCompletedCount: Int {
