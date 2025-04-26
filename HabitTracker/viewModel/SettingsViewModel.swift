@@ -11,6 +11,7 @@ import SwiftUI
 
 @MainActor
 class SettingsViewModel: ObservableObject {
+    @Published var showResetAlert = false
     @Published var selectedTheme: ThemeMode = .system {
         didSet {
             UserDefaults.standard.set(selectedTheme.rawValue, forKey: "themeMode")
@@ -18,19 +19,16 @@ class SettingsViewModel: ObservableObject {
         }
     }
 
-    private var modelContext: ModelContext?
+    private let service: DatabaseService
 
-    init() {
+    init(context: ModelContext) {
+        self.service = DatabaseService(context: context)
         if let raw = UserDefaults.standard.string(forKey: "themeMode"),
            let mode = ThemeMode(rawValue: raw) {
             selectedTheme = mode
         } else {
             selectedTheme = .system
         }
-    }
-
-    func injectContext(_ context: ModelContext) {
-        modelContext = context
     }
 
     func applyTheme() {
@@ -41,12 +39,6 @@ class SettingsViewModel: ObservableObject {
     }
 
     func resetAllHabits() {
-        guard let context = modelContext else { return }
-        let descriptor = FetchDescriptor<Habit>()
-        let habits = (try? context.fetch(descriptor)) ?? []
-        habits.forEach { context.delete($0) }
-        try? context.save()
+        try? service.deleteAll(of: Habit.self)
     }
-
-    @Published var showResetAlert = false
 }

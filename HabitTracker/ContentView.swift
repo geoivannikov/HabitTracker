@@ -17,11 +17,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Today", systemImage: "calendar")
                 }
-            StatsView()
+            StatsView(modelContext: modelContext)
                 .tabItem {
                     Label("Stats", systemImage: "chart.bar")
                 }
-            SettingsView()
+            SettingsView(modelContext: modelContext)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }

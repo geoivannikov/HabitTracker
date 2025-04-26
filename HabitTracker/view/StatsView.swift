@@ -10,7 +10,7 @@ import SwiftData
 
 struct StatsView: View {
     @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel = StatsViewModel()
+    @StateObject private var viewModel: StatsViewModel
 
     var body: some View {
         NavigationStack {
@@ -36,9 +36,6 @@ struct StatsView: View {
                 Spacer()
             }
             .padding()
-            .onAppear {
-                viewModel.injectContext(modelContext)
-            }
         }
     }
 
@@ -56,5 +53,9 @@ struct StatsView: View {
                 }
             }
         }
+    }
+    
+    init(modelContext: ModelContext) {
+        _viewModel = StateObject(wrappedValue: StatsViewModel(context: modelContext))
     }
 }

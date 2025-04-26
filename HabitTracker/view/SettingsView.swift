@@ -9,8 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct SettingsView: View {
-    @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel = SettingsViewModel()
+    @StateObject private var viewModel: SettingsViewModel
 
     var body: some View {
         NavigationStack {
@@ -47,8 +46,9 @@ struct SettingsView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.injectContext(modelContext)
-        }
+    }
+    
+    init(modelContext: ModelContext) {
+        _viewModel = StateObject(wrappedValue: SettingsViewModel(context: modelContext))
     }
 }

@@ -13,17 +13,14 @@ import SwiftUI
 class StatsViewModel: ObservableObject {
     @Published var habits: [Habit] = []
 
-    private var modelContext: ModelContext?
+    private let service: DatabaseService
 
-    func injectContext(_ context: ModelContext) {
-        self.modelContext = context
-        loadHabits()
+    init(context: ModelContext) {
+        self.service = DatabaseService(context: context)
     }
 
     func loadHabits() {
-        guard let context = modelContext else { return }
-        let descriptor = FetchDescriptor<Habit>()
-        habits = (try? context.fetch(descriptor)) ?? []
+        habits = try! service.fetchAll(of: Habit.self)
     }
 
     var totalCompletedCount: Int {

@@ -44,7 +44,8 @@ extension Habit {
     }
 
     var isScheduledForToday: Bool {
-        let weekday = Calendar.current.component(.weekday, from: Date())
-        return scheduledDays.contains(weekday)
+        let todayWeekday = Calendar.current.component(.weekday, from: Date())
+        let adjustedWeekday = todayWeekday == 1 ? 7 : todayWeekday - 1
+        return scheduledDays.contains(adjustedWeekday)
     }
 }
