@@ -6,57 +6,40 @@
 //
 
 import Foundation
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @MainActor
-class TodayViewModel: ObservableObject {
-    private var service: HabitDataService?
-    @Published var todayHabits: [Habit] = []
+final class TodayViewModel: ObservableObject {
+    @Published private(set) var todayHabits: [Habit] = []
+    @Published var errorMessage: String?
 
-    func injectContext(_ context: ModelContext) {
-        if service == nil {
-            service = HabitDataService(context: context)
-        }
+    private let service: DatabaseService
+
+    init(context: ModelContext) {
+        self.service = DatabaseService(context: context)
     }
 
     func loadTodayHabits() {
-        todayHabits = [
-            Habit(
-                        name: "Read 10 pages",
-                        scheduledDays: [2, 3, 4, 5, 6], // Mon–Fri
-                        reminderTime: nil,
-                        colorHex: "#FF6B6B",
-                        iconName: "book.fill",
-                        lastCompletionDate: nil
-                    ),
-                    Habit(
-                        name: "Drink water",
-                        scheduledDays: [1, 2, 3, 4, 5, 6, 7],
-                        reminderTime: nil,
-                        colorHex: "#34C759",
-                        iconName: "drop.fill",
-                        lastCompletionDate: Date() // pretend it was completed today
-                    ),
-                    Habit(
-                        name: "Exercise",
-                        scheduledDays: [2, 4, 6],
-                        reminderTime: nil,
-                        colorHex: "#5AC8FA",
-                        iconName: "figure.walk",
-                        lastCompletionDate: nil
-                    )
-        ]
-//        todayHabits = service?.fetchTodayHabits() ?? []
+        do {
+            let allHabits = try service.fetch(of: Habit.self)
+            todayHabits = allHabits.filter { ($0.isScheduledForToday) }
+        } catch {
+            errorMessage = "Failed to load today's habits: \(error.localizedDescription)"
+        }
     }
 
     func toggleHabit(_ habit: Habit) {
-//        if habit.isCompletedToday() {
-//            habit.lastCompletionDate = nil
-//        } else {
-//            service?.markAsCompletedToday(habit)
-//        }
-//        loadTodayHabits()
+        do {
+            try service.update {
+                habit.lastCompletionDate = habit.isCompletedToday ? nil : Date()
+            }
+
+            if let index = todayHabits.firstIndex(where: { $0.id == habit.id }) {
+                todayHabits[index] = habit
+            }
+        } catch {
+            errorMessage = "Failed to update habit: \(error.localizedDescription)"
+        }
     }
 }
-

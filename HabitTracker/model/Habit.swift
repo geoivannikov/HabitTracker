@@ -8,11 +8,8 @@
 import Foundation
 import SwiftData
 
-import Foundation
-import SwiftData
-
 @Model
-class Habit {
+final class Habit: DatabaseModel {
     @Attribute(.unique) var id: UUID
     var name: String
     var scheduledDays: [Int]
@@ -21,15 +18,13 @@ class Habit {
     var iconName: String
     var lastCompletionDate: Date?
 
-    init(
-        id: UUID = UUID(),
-        name: String,
-        scheduledDays: [Int],
-        reminderTime: Date? = nil,
-        colorHex: String = "#34C759",
-        iconName: String = "checkmark",
-        lastCompletionDate: Date? = nil
-    ) {
+    init(id: UUID = UUID(),
+         name: String,
+         scheduledDays: [Int],
+         reminderTime: Date?,
+         colorHex: String,
+         iconName: String,
+         lastCompletionDate: Date? = nil) {
         self.id = id
         self.name = name
         self.scheduledDays = scheduledDays
@@ -38,13 +33,17 @@ class Habit {
         self.iconName = iconName
         self.lastCompletionDate = lastCompletionDate
     }
+}
 
-    func isCompletedToday() -> Bool {
+// MARK: - Computed Properties
+
+extension Habit {
+    var isCompletedToday: Bool {
         guard let date = lastCompletionDate else { return false }
         return Calendar.current.isDateInToday(date)
     }
 
-    func isScheduledForToday() -> Bool {
+    var isScheduledForToday: Bool {
         let weekday = Calendar.current.component(.weekday, from: Date())
         return scheduledDays.contains(weekday)
     }

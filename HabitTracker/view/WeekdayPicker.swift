@@ -9,28 +9,33 @@ import SwiftUI
 
 struct WeekdayPicker: View {
     @Binding var selectedDays: Set<Int>
-    let days = Calendar.current.shortWeekdaySymbols // ["Sun", "Mon", ...]
+
+    let weekdays = Calendar.current.shortWeekdaySymbols
+    var orderedWeekdays: [String] {
+        Array(weekdays[1...6]) + [weekdays[0]]
+    }
 
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(1...7, id: \.self) { i in
-                let label = days[i % 7] // Sunday = 1 in Calendar
+        HStack {
+            ForEach(0..<7, id: \.self) { index in
+                let displayIndex = (index + 1) % 7
+                let isSelected = selectedDays.contains(displayIndex)
 
-                Button(action: {
-                    if selectedDays.contains(i) {
-                        selectedDays.remove(i)
-                    } else {
-                        selectedDays.insert(i)
+                Text(orderedWeekdays[index])
+                    .frame(width: 40, height: 40)
+                    .background(isSelected ? Color.blue : Color.gray.opacity(0.2))
+                    .foregroundColor(isSelected ? .white : .primary)
+                    .clipShape(Circle())
+                    .contentShape(Circle())
+                    .onTapGesture {
+                        if isSelected {
+                            selectedDays.remove(displayIndex)
+                        } else {
+                            selectedDays.insert(displayIndex)
+                        }
                     }
-                }) {
-                    Text(label)
-                        .frame(maxWidth: .infinity, minHeight: 40)
-                        .background(selectedDays.contains(i) ? Color.blue : Color.gray.opacity(0.2))
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                }
-                .padding(.horizontal, 2)
             }
         }
+        .padding()
     }
 }

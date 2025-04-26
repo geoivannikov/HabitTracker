@@ -12,26 +12,28 @@ struct AddHabitView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
 
-    @State private var name = ""
-    @State private var selectedDays: Set<Int> = []
-    @State private var reminderTime: Date = Date()
-    @State private var hasReminder = false
+    @StateObject private var viewModel: AddHabitViewModel
+    @State private var isShowingError = false
+
+    init(modelContext: ModelContext) {
+        _viewModel = StateObject(wrappedValue: AddHabitViewModel(context: modelContext))
+    }
 
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: Text("Name")) {
-                    TextField("Enter habit name", text: $name)
+                    TextField("Enter habit name", text: $viewModel.name)
                 }
 
                 Section(header: Text("Repeat On")) {
-                    WeekdayPicker(selectedDays: $selectedDays)
+                    WeekdayPicker(selectedDays: $viewModel.selectedDays)
                 }
 
                 Section(header: Text("Reminder")) {
-                    Toggle("Enable Reminder", isOn: $hasReminder)
-                    if hasReminder {
-                        DatePicker("Time", selection: $reminderTime, displayedComponents: .hourAndMinute)
+                    Toggle("Enable Reminder", isOn: $viewModel.hasReminder)
+                    if viewModel.hasReminder {
+                        DatePicker("Time", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
                     }
                 }
             }
@@ -39,17 +41,11 @@ struct AddHabitView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        let habit = Habit(
-                            name: name,
-                            scheduledDays: Array(selectedDays),
-                            reminderTime: hasReminder ? reminderTime : nil,
-                            colorHex: "#34C759", // default
-                            iconName: "checkmark" // default
-                        )
-                        modelContext.insert(habit)
-                        try? modelContext.save()
-                        dismiss()
-                    }.disabled(name.isEmpty || selectedDays.isEmpty)
+                        if viewModel.saveHabit() {
+                            dismiss()
+                        }
+                    }
+                    .disabled(!viewModel.isValid)
                 }
 
                 ToolbarItem(placement: .cancellationAction) {
@@ -57,6 +53,16 @@ struct AddHabitView: View {
                         dismiss()
                     }
                 }
+            }
+            .alert("Error", isPresented: $isShowingError) {
+                Button("OK", role: .cancel) {
+                    viewModel.errorMessage = nil
+                }
+            } message: {
+                Text(viewModel.errorMessage ?? "An unknown error occurred.")
+            }
+            .onReceive(viewModel.$errorMessage) { msg in
+                isShowingError = msg != nil
             }
         }
     }

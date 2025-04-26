@@ -17,7 +17,7 @@
 		827FD27B2DB8266B00ED861E /* HabitTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */; };
 		827FD27C2DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2792DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift */; };
 		827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2812DB826B900ED861E /* TodayViewModel.swift */; };
-		827FD2842DB82A0300ED861E /* HabitDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2832DB82A0000ED861E /* HabitDataService.swift */; };
+		827FD2842DB82A0300ED861E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2832DB82A0000ED861E /* DatabaseService.swift */; };
 		827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2852DB82E3B00ED861E /* SettingsView.swift */; };
 		827FD2882DB82E7F00ED861E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2872DB82E7E00ED861E /* StatsView.swift */; };
 		827FD28B2DB832E800ED861E /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD28A2DB832E600ED861E /* AddHabitView.swift */; };
@@ -25,6 +25,8 @@
 		827FD28F2DB8359B00ED861E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD28E2DB8359A00ED861E /* SettingsViewModel.swift */; };
 		827FD2912DB8361D00ED861E /* ThemeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2902DB8361C00ED861E /* ThemeMode.swift */; };
 		827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2922DB8370400ED861E /* StatsViewModel.swift */; };
+		827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2942DB9792600ED861E /* DatabaseModel.swift */; };
+		827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,7 @@
 		827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerUITests.swift; sourceTree = "<group>"; };
 		827FD2792DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		827FD2812DB826B900ED861E /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
-		827FD2832DB82A0000ED861E /* HabitDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataService.swift; sourceTree = "<group>"; };
+		827FD2832DB82A0000ED861E /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		827FD2852DB82E3B00ED861E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		827FD2872DB82E7E00ED861E /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		827FD28A2DB832E600ED861E /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,8 @@
 		827FD28E2DB8359A00ED861E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		827FD2902DB8361C00ED861E /* ThemeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMode.swift; sourceTree = "<group>"; };
 		827FD2922DB8370400ED861E /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		827FD2942DB9792600ED861E /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +130,11 @@
 		827FD2662DB8266600ED861E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				827FD28C2DB8330100ED861E /* WeekdayPicker.swift */,
+				827FD2652DB8266600ED861E /* TodayView.swift */,
 				827FD28A2DB832E600ED861E /* AddHabitView.swift */,
+				827FD28C2DB8330100ED861E /* WeekdayPicker.swift */,
 				827FD2872DB82E7E00ED861E /* StatsView.swift */,
 				827FD2852DB82E3B00ED861E /* SettingsView.swift */,
-				827FD2652DB8266600ED861E /* TodayView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -139,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				827FD27E2DB8267C00ED861E /* services */,
-				827FD2802DB826B500ED861E /* viewModel */,
 				827FD27D2DB8267400ED861E /* model */,
+				827FD2802DB826B500ED861E /* viewModel */,
 				827FD2662DB8266600ED861E /* view */,
 				827FD2682DB8266600ED861E /* ContentView.swift */,
 				827FD26A2DB8266600ED861E /* HabitTrackerApp.swift */,
@@ -172,6 +176,7 @@
 		827FD27D2DB8267400ED861E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				827FD2942DB9792600ED861E /* DatabaseModel.swift */,
 				827FD2902DB8361C00ED861E /* ThemeMode.swift */,
 				827FD26C2DB8266600ED861E /* Habit.swift */,
 			);
@@ -181,7 +186,7 @@
 		827FD27E2DB8267C00ED861E /* services */ = {
 			isa = PBXGroup;
 			children = (
-				827FD2832DB82A0000ED861E /* HabitDataService.swift */,
+				827FD2832DB82A0000ED861E /* DatabaseService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -189,9 +194,10 @@
 		827FD2802DB826B500ED861E /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				827FD2812DB826B900ED861E /* TodayViewModel.swift */,
+				827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */,
 				827FD2922DB8370400ED861E /* StatsViewModel.swift */,
 				827FD28E2DB8359A00ED861E /* SettingsViewModel.swift */,
-				827FD2812DB826B900ED861E /* TodayViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -334,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */,
-				827FD2842DB82A0300ED861E /* HabitDataService.swift in Sources */,
+				827FD2842DB82A0300ED861E /* DatabaseService.swift in Sources */,
 				827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */,
 				827FD26E2DB8266600ED861E /* TodayView.swift in Sources */,
 				827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */,
@@ -345,6 +351,8 @@
 				827FD26F2DB8266600ED861E /* ContentView.swift in Sources */,
 				827FD28F2DB8359B00ED861E /* SettingsViewModel.swift in Sources */,
 				827FD2702DB8266600ED861E /* HabitTrackerApp.swift in Sources */,
+				827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */,
+				827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */,
 				827FD2712DB8266600ED861E /* Habit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,22 +10,27 @@ import SwiftData
 
 struct TodayView: View {
     @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel: TodayViewModel = TodayViewModel()
+    @StateObject private var viewModel: TodayViewModel
     @State private var isPresentingAddHabit = false
+    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.todayHabits) { habit in
-                    HStack {
-                        Text(habit.name)
-                        Spacer()
-                        Button {
-                            viewModel.toggleHabit(habit)
-                        } label: {
-                            Image(systemName: habit.isCompletedToday() ? "checkmark.circle.fill" : "circle")
+                if viewModel.todayHabits.isEmpty {
+                    ContentUnavailableView("No habits for today", systemImage: "moon.zzz")
+                } else {
+                    ForEach(viewModel.todayHabits) { habit in
+                        HStack {
+                            Text(habit.name)
+                            Spacer()
+                            Button {
+                                viewModel.toggleHabit(habit)
+                            } label: {
+                                Image(systemName: habit.isCompletedToday ? "checkmark.circle.fill" : "circle")
+                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -42,13 +47,25 @@ struct TodayView: View {
             .sheet(isPresented: $isPresentingAddHabit, onDismiss: {
                 viewModel.loadTodayHabits()
             }) {
-                AddHabitView()
+                AddHabitView(modelContext: modelContext)
+            }
+            .alert("Error", isPresented: $isShowingError) {
+                Button("OK", role: .cancel) {
+                    viewModel.errorMessage = nil
+                }
+            } message: {
+                Text(viewModel.errorMessage ?? "An unknown error occurred.")
             }
         }
         .onAppear {
-            viewModel.injectContext(modelContext)
             viewModel.loadTodayHabits()
         }
+        .onReceive(viewModel.$errorMessage) { message in
+            isShowingError = message != nil
+        }
+    }
+
+    init(modelContext: ModelContext) {
+        _viewModel = StateObject(wrappedValue: TodayViewModel(context: modelContext))
     }
 }
-
