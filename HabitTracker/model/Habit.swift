@@ -32,8 +32,6 @@ final class Habit: DatabaseModel {
     }
 }
 
-// MARK: - Computed Properties
-
 extension Habit {
     var isCompletedToday: Bool {
         guard let date = lastCompletionDate else { return false }

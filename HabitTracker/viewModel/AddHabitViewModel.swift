@@ -17,10 +17,12 @@ final class AddHabitViewModel: ObservableObject {
     @Published var reminderTime: Date = Date()
     @Published var errorMessage: String?
 
-    private let service: DatabaseService
+    private let databaseService: DatabaseService
+    private let notificationService: NotificationService
 
-    init(context: ModelContext) {
-        self.service = DatabaseService(context: context)
+    init(context: ModelContext, notificationService: NotificationService = NotificationService.shared) {
+        self.databaseService = DatabaseService(context: context)
+        self.notificationService = notificationService
     }
 
     var isValid: Bool {
@@ -42,7 +44,8 @@ final class AddHabitViewModel: ObservableObject {
                           reminderTime: hasReminder ? reminderTime : nil)
 
         do {
-            try service.create(habit)
+            try databaseService.create(habit)
+            try notificationService.scheduleHabitReminder(habit: habit)
             return true
         } catch {
             errorMessage = "Failed to save habit: \(error.localizedDescription)"

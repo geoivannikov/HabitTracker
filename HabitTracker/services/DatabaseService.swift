@@ -15,14 +15,10 @@ final class DatabaseService {
         self.context = context
     }
 
-    // MARK: - Create
-
     func create<T: DatabaseModel>(_ model: T) throws {
         context.insert(model)
         try context.save()
     }
-
-    // MARK: - Read
 
     func fetchAll<T: DatabaseModel>(of type: T.Type, sortDescriptors: [SortDescriptor<T>] = []) throws -> [T] {
         let descriptor = FetchDescriptor<T>(sortBy: sortDescriptors)
@@ -32,16 +28,12 @@ final class DatabaseService {
     func fetch<T: DatabaseModel>(of type: T.Type) throws -> [T] {
         try context.fetch(FetchDescriptor<T>())
     }
-
-    // MARK: - Update
-
+    
     func update(_ block: () throws -> Void) throws {
         try block()
         try context.save()
     }
-
-    // MARK: - Delete
-
+    
     func delete<T: DatabaseModel>(_ model: T) throws {
         context.delete(model)
         try context.save()

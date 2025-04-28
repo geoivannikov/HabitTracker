@@ -23,7 +23,6 @@ class HabitCategoryPredictor {
             let prediction = try model.prediction(text: habit)
             return prediction.label
         } catch {
-            print("Ошибка предсказания: \(error)")
             return nil
         }
     }

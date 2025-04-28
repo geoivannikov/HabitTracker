@@ -29,4 +29,10 @@ struct HabitTrackerApp: App {
         }
         .modelContainer(sharedModelContainer)
     }
+    
+    init() {
+        Task {
+            try await NotificationService.shared.requestPermission()
+        }
+    }
 }
