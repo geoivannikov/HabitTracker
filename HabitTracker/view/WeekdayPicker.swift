@@ -23,7 +23,7 @@ struct WeekdayPicker: View {
 
                 Text(orderedWeekdays[index])
                     .frame(width: 40, height: 40)
-                    .background(isSelected ? Color.blue : Color.gray.opacity(0.2))
+                    .background(isSelected ? Color.blue : Color.gray)
                     .foregroundColor(isSelected ? .white : .primary)
                     .clipShape(Circle())
                     .contentShape(Circle())

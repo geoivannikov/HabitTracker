@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		824801DF2DC00AB3002F990C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801DE2DC00AB2002F990C /* NotificationService.swift */; };
+		824801E42DC01537002F990C /* ErrorAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801E32DC01537002F990C /* ErrorAlertModifier.swift */; };
+		824801E62DC01549002F990C /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801E52DC01540002F990C /* View+.swift */; };
+		826266072DC0251600F35F06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826266062DC0251300F35F06 /* Constants.swift */; };
+		826266092DC0256400F35F06 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826266082DC0256300F35F06 /* TabItem.swift */; };
+		8262660B2DC0284C00F35F06 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262660A2DC0284B00F35F06 /* CardModifier.swift */; };
 		827FD26E2DB8266600ED861E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2652DB8266600ED861E /* TodayView.swift */; };
 		827FD26F2DB8266600ED861E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2682DB8266600ED861E /* MainTabView.swift */; };
 		827FD2702DB8266600ED861E /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD26A2DB8266600ED861E /* HabitTrackerApp.swift */; };
@@ -52,6 +57,11 @@
 
 /* Begin PBXFileReference section */
 		824801DE2DC00AB2002F990C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		824801E32DC01537002F990C /* ErrorAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertModifier.swift; sourceTree = "<group>"; };
+		824801E52DC01540002F990C /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		826266062DC0251300F35F06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		826266082DC0256300F35F06 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		8262660A2DC0284B00F35F06 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		827FD21A2DB4486B00ED861E /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827FD22E2DB4486E00ED861E /* HabitTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		827FD2382DB4486E00ED861E /* HabitTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +117,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		824801E02DC01290002F990C /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				824801E52DC01540002F990C /* View+.swift */,
+				826266062DC0251300F35F06 /* Constants.swift */,
+				824801E32DC01537002F990C /* ErrorAlertModifier.swift */,
+				8262660A2DC0284B00F35F06 /* CardModifier.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		827FD2112DB4486B00ED861E = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +172,7 @@
 		827FD26D2DB8266600ED861E /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				824801E02DC01290002F990C /* shared */,
 				82E8E30C2DBD5D4E00136A04 /* ml */,
 				827FD27E2DB8267C00ED861E /* services */,
 				827FD27D2DB8267400ED861E /* model */,
@@ -185,6 +207,7 @@
 		827FD27D2DB8267400ED861E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				826266082DC0256300F35F06 /* TabItem.swift */,
 				827FD26C2DB8266600ED861E /* Habit.swift */,
 				82E8E3112DBD7A6500136A04 /* HabitCategory.swift */,
 				827FD2942DB9792600ED861E /* DatabaseModel.swift */,
@@ -360,21 +383,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */,
+				826266072DC0251600F35F06 /* Constants.swift in Sources */,
+				824801E42DC01537002F990C /* ErrorAlertModifier.swift in Sources */,
 				827FD2842DB82A0300ED861E /* DatabaseService.swift in Sources */,
 				827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */,
 				827FD26E2DB8266600ED861E /* TodayView.swift in Sources */,
 				827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */,
+				826266092DC0256400F35F06 /* TabItem.swift in Sources */,
 				827FD28D2DB8330200ED861E /* WeekdayPicker.swift in Sources */,
 				827FD2882DB82E7F00ED861E /* StatsView.swift in Sources */,
 				824801DF2DC00AB3002F990C /* NotificationService.swift in Sources */,
 				82E8E3102DBD5EAB00136A04 /* HabitCategoryPredictor.swift in Sources */,
 				827FD2912DB8361D00ED861E /* ThemeMode.swift in Sources */,
 				827FD28B2DB832E800ED861E /* AddHabitView.swift in Sources */,
+				8262660B2DC0284C00F35F06 /* CardModifier.swift in Sources */,
 				82E8E3122DBD7A6600136A04 /* HabitCategory.swift in Sources */,
 				827FD26F2DB8266600ED861E /* MainTabView.swift in Sources */,
 				827FD28F2DB8359B00ED861E /* SettingsViewModel.swift in Sources */,
 				827FD2702DB8266600ED861E /* HabitTrackerApp.swift in Sources */,
 				82E8E30E2DBD5D9100136A04 /* HabitClassifier.mlmodel in Sources */,
+				824801E62DC01549002F990C /* View+.swift in Sources */,
 				827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */,
 				827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */,
 				827FD2712DB8266600ED861E /* Habit.swift in Sources */,

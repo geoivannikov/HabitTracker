@@ -10,7 +10,6 @@ import SwiftData
 
 struct SettingsView: View {
     @StateObject private var viewModel: SettingsViewModel
-    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
@@ -22,21 +21,22 @@ struct SettingsView: View {
                         }
                     }
                 }
-
                 Section(header: Text("Data")) {
                     Button("Reset All Habits", role: .destructive) {
                         viewModel.showResetAlert = true
                     }
                 }
-
                 Section(header: Text("About")) {
                     HStack {
                         Text("Version")
+                            .font(.body)
                         Spacer()
-                        Text("1.0.0")
+                        Text(Constants.AppInfo.version)
+                            .font(.footnote)
                             .foregroundColor(.secondary)
                     }
-                    Link("GitHub", destination: URL(string: "https://github.com/geoivannikov/HabitTracker")!)
+                    Link("GitHub", destination: Constants.URLLinks.github)
+                        .font(.body)
                 }
             }
             .navigationTitle("Settings")
@@ -46,17 +46,8 @@ struct SettingsView: View {
                     viewModel.resetAllHabits()
                 }
             }
-            .alert("Error", isPresented: $isShowingError) {
-                Button("OK", role: .cancel) {
-                    viewModel.errorMessage = nil
-                }
-            } message: {
-                Text(viewModel.errorMessage ?? "An unknown error occurred.")
-            }
         }
-        .onReceive(viewModel.$errorMessage) { message in
-            isShowingError = message != nil
-        }
+        .errorAlert(errorMessage: $viewModel.errorMessage)
     }
 
     init(modelContext: ModelContext) {

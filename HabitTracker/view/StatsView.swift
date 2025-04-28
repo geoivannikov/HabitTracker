@@ -11,7 +11,6 @@ import SwiftData
 struct StatsView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: StatsViewModel
-    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
@@ -19,49 +18,38 @@ struct StatsView: View {
                 Text("Statistics")
                     .font(.largeTitle)
                     .bold()
-
                 VStack(alignment: .leading, spacing: 10) {
                     Text("✅ Total Completed: \(viewModel.totalCompletedCount)")
+                        .font(.headline)
                     Text("🔥 Current Streak: \(viewModel.currentStreak) days")
+                        .font(.headline)
                 }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
-
+                .cardStyle()
                 Divider()
-
                 Text("This Week")
                     .font(.headline)
-
                 VStack(alignment: .leading) {
                     ForEach(viewModel.weeklyData, id: \.0) { (day, count) in
                         HStack {
                             Text(day)
+                                .font(.subheadline)
                                 .frame(width: 40, alignment: .leading)
                             Rectangle()
                                 .fill(.blue)
                                 .frame(width: CGFloat(count * 20), height: 10)
                             Text("\(count)")
+                                .font(.caption)
                         }
                     }
                 }
-
                 Spacer()
             }
             .padding()
             .onAppear {
                 viewModel.loadHabits()
             }
-            .alert("Error", isPresented: $isShowingError) {
-                Button("OK", role: .cancel) {
-                    viewModel.errorMessage = nil
-                }
-            } message: {
-                Text(viewModel.errorMessage ?? "An unknown error occurred.")
-            }
         }
-        .onReceive(viewModel.$errorMessage) { message in
-            isShowingError = message != nil
-        }
+        .errorAlert(errorMessage: $viewModel.errorMessage)
     }
     
     init(modelContext: ModelContext) {

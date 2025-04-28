@@ -20,13 +20,9 @@ final class DatabaseService {
         try context.save()
     }
 
-    func fetchAll<T: DatabaseModel>(of type: T.Type, sortDescriptors: [SortDescriptor<T>] = []) throws -> [T] {
+    func fetch<T: DatabaseModel>(of type: T.Type, sortDescriptors: [SortDescriptor<T>] = []) throws -> [T] {
         let descriptor = FetchDescriptor<T>(sortBy: sortDescriptors)
         return try context.fetch(descriptor)
-    }
-
-    func fetch<T: DatabaseModel>(of type: T.Type) throws -> [T] {
-        try context.fetch(FetchDescriptor<T>())
     }
     
     func update(_ block: () throws -> Void) throws {
@@ -40,10 +36,7 @@ final class DatabaseService {
     }
 
     func deleteAll<T: DatabaseModel>(of type: T.Type) throws {
-        let all = try fetchAll(of: type)
-        for item in all {
-            context.delete(item)
-        }
+        try fetch(of: type).forEach { context.delete($0) }
         try context.save()
     }
 }

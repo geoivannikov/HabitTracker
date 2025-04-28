@@ -12,7 +12,6 @@ struct TodayView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: TodayViewModel
     @State private var isPresentingAddHabit = false
-    @State private var isShowingError = false
 
     var body: some View {
         NavigationStack {
@@ -26,6 +25,7 @@ struct TodayView: View {
                                 .fill(habit.category.color)
                                 .frame(width: 20, height: 20)
                             Text(habit.name)
+                                .font(.body)
                             Spacer()
                             Button {
                                 viewModel.toggleHabit(habit)
@@ -47,28 +47,16 @@ struct TodayView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isPresentingAddHabit, onDismiss: {
-                viewModel.loadTodayHabits()
-            }) {
+            .sheet(isPresented: $isPresentingAddHabit, onDismiss: viewModel.loadTodayHabits) {
                 AddHabitView(modelContext: modelContext)
             }
-            .alert("Error", isPresented: $isShowingError) {
-                Button("OK", role: .cancel) {
-                    viewModel.errorMessage = nil
-                }
-            } message: {
-                Text(viewModel.errorMessage ?? "An unknown error occurred.")
-            }
+            .onAppear(perform: viewModel.loadTodayHabits)
         }
-        .onAppear {
-            viewModel.loadTodayHabits()
-        }
-        .onReceive(viewModel.$errorMessage) { message in
-            isShowingError = message != nil
-        }
+        .errorAlert(errorMessage: $viewModel.errorMessage)
     }
 
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: TodayViewModel(context: modelContext))
     }
 }
+

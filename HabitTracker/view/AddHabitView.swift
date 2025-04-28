@@ -10,10 +10,7 @@ import SwiftData
 
 struct AddHabitView: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var modelContext
-
     @StateObject private var viewModel: AddHabitViewModel
-    @State private var isShowingError = false
 
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: AddHabitViewModel(context: modelContext))
@@ -25,18 +22,15 @@ struct AddHabitView: View {
                 Section(header: Text("Name")) {
                     TextField("Enter habit name", text: $viewModel.name)
                 }
-
                 Section(header: Text("Repeat On")) {
                     WeekdayPicker(selectedDays: $viewModel.selectedDays)
                 }
-
                 Section(header: Text("Reminder")) {
                     Toggle("Enable Reminder", isOn: $viewModel.hasReminder)
                     if viewModel.hasReminder {
                         DatePicker("Time", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
                     }
                 }
-                
                 Section(header: Text("Categories list (AI-Generated)")) {
                     ForEach(HabitCategory.allCases, id: \.self) { category in
                         HStack {
@@ -68,16 +62,7 @@ struct AddHabitView: View {
                     }
                 }
             }
-            .alert("Error", isPresented: $isShowingError) {
-                Button("OK", role: .cancel) {
-                    viewModel.errorMessage = nil
-                }
-            } message: {
-                Text(viewModel.errorMessage ?? "An unknown error occurred.")
-            }
-            .onReceive(viewModel.$errorMessage) { msg in
-                isShowingError = msg != nil
-            }
+            .errorAlert(errorMessage: $viewModel.errorMessage)
         }
     }
 }
