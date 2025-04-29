@@ -9,8 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct StatsView: View {
-    @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel: StatsViewModel
+    @StateObject private var viewModel = StatsViewModel()
 
     var body: some View {
         NavigationStack {
@@ -32,13 +31,11 @@ struct StatsView: View {
                     ForEach(viewModel.weeklyData, id: \.0) { (day, count) in
                         HStack {
                             Text(day)
-                                .font(.subheadline)
                                 .frame(width: 40, alignment: .leading)
                             Rectangle()
                                 .fill(.blue)
                                 .frame(width: CGFloat(count * 20), height: 10)
                             Text("\(count)")
-                                .font(.caption)
                         }
                     }
                 }
@@ -50,9 +47,5 @@ struct StatsView: View {
             }
         }
         .errorAlert(errorMessage: $viewModel.errorMessage)
-    }
-    
-    init(modelContext: ModelContext) {
-        _viewModel = StateObject(wrappedValue: StatsViewModel(context: modelContext))
     }
 }

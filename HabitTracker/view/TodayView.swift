@@ -9,8 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct TodayView: View {
-    @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel: TodayViewModel
+    @StateObject private var viewModel = TodayViewModel()
     @State private var isPresentingAddHabit = false
 
     var body: some View {
@@ -48,15 +47,11 @@ struct TodayView: View {
                 }
             }
             .sheet(isPresented: $isPresentingAddHabit, onDismiss: viewModel.loadTodayHabits) {
-                AddHabitView(modelContext: modelContext)
+                AddHabitView()
             }
             .onAppear(perform: viewModel.loadTodayHabits)
         }
         .errorAlert(errorMessage: $viewModel.errorMessage)
-    }
-
-    init(modelContext: ModelContext) {
-        _viewModel = StateObject(wrappedValue: TodayViewModel(context: modelContext))
     }
 }
 

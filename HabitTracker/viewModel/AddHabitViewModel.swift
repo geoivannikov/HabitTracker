@@ -17,13 +17,8 @@ final class AddHabitViewModel: ObservableObject {
     @Published var reminderTime: Date = Date()
     @Published var errorMessage: String?
 
-    private let databaseService: DatabaseService
-    private let notificationService: NotificationService
-
-    init(context: ModelContext, notificationService: NotificationService = NotificationService.shared) {
-        self.databaseService = DatabaseService(context: context)
-        self.notificationService = notificationService
-    }
+    private let databaseService: DatabaseServiceProtocol = DIContainer.shared.resolve()
+    private let notificationService: NotificationServiceProtocol = DIContainer.shared.resolve()
 
     var isValid: Bool {
         !name.isEmpty && !selectedDays.isEmpty

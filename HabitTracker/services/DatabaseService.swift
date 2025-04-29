@@ -8,7 +8,15 @@
 import Foundation
 import SwiftData
 
-final class DatabaseService {
+protocol DatabaseServiceProtocol {
+    func create<T: DatabaseModel>(_ model: T) throws
+    func fetch<T: DatabaseModel>(of type: T.Type, sortDescriptors: [SortDescriptor<T>]) throws -> [T]
+    func update(_ block: () throws -> Void) throws
+    func delete<T: DatabaseModel>(_ model: T) throws
+    func deleteAll<T: DatabaseModel>(of type: T.Type) throws
+}
+
+final class DatabaseService: DatabaseServiceProtocol {
     private let context: ModelContext
 
     init(context: ModelContext) {

@@ -25,11 +25,11 @@ struct MainTabView: View {
     private func view(for tab: TabItem) -> some View {
         switch tab {
         case .today:
-            return AnyView(TodayView(modelContext: modelContext))
+            return AnyView(TodayView())
         case .stats:
-            return AnyView(StatsView(modelContext: modelContext))
+            return AnyView(StatsView())
         case .settings:
-            return AnyView(SettingsView(modelContext: modelContext))
+            return AnyView(SettingsView())
         }
     }
 }

@@ -14,15 +14,11 @@ class StatsViewModel: ObservableObject {
     @Published var habits: [Habit] = []
     @Published var errorMessage: String?
 
-    private let service: DatabaseService
-
-    init(context: ModelContext) {
-        self.service = DatabaseService(context: context)
-    }
+    private let service: DatabaseServiceProtocol = DIContainer.shared.resolve()
 
     func loadHabits() {
         do {
-            habits = try service.fetch(of: Habit.self)
+            habits = try service.fetch(of: Habit.self, sortDescriptors: [])
         } catch {
             errorMessage = "Failed to load habits: \(error.localizedDescription)"
         }

@@ -31,8 +31,23 @@ struct HabitTrackerApp: App {
     }
     
     init() {
+        setupDependencies()
+        requestPermissions()
+    }
+    
+    private func requestPermissions() {
         Task {
-            try await NotificationService.shared.requestPermission()
+            let notificationService: NotificationServiceProtocol = DIContainer.shared.resolve()
+            try await notificationService.requestPermission()
+        }
+    }
+    
+    private func setupDependencies() {
+        DIContainer.shared.register(DatabaseServiceProtocol.self) {
+            DatabaseService(context: sharedModelContainer.mainContext)
+        }
+        DIContainer.shared.register(NotificationServiceProtocol.self) {
+            NotificationService.shared
         }
     }
 }

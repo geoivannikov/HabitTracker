@@ -7,7 +7,12 @@
 
 import UserNotifications
 
-final class NotificationService {
+protocol NotificationServiceProtocol {
+    func requestPermission() async throws
+    func scheduleHabitReminder(habit: Habit) throws
+}
+
+final class NotificationService: NotificationServiceProtocol {
     static let shared = NotificationService()
     
     private init() {}

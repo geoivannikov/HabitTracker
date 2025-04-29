@@ -20,10 +20,9 @@ class SettingsViewModel: ObservableObject {
         }
     }
 
-    private let service: DatabaseService
+    private let service: DatabaseServiceProtocol = DIContainer.shared.resolve()
 
-    init(context: ModelContext) {
-        self.service = DatabaseService(context: context)
+    init() {
         if let raw = UserDefaults.standard.string(forKey: "themeMode"),
            let mode = ThemeMode(rawValue: raw) {
             selectedTheme = mode

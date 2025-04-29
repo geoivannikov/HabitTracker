@@ -14,15 +14,11 @@ final class TodayViewModel: ObservableObject {
     @Published private(set) var todayHabits: [Habit] = []
     @Published var errorMessage: String?
 
-    private let service: DatabaseService
-
-    init(context: ModelContext) {
-        self.service = DatabaseService(context: context)
-    }
+    private let service: DatabaseServiceProtocol = DIContainer.shared.resolve()
 
     func loadTodayHabits() {
         do {
-            let allHabits = try service.fetch(of: Habit.self)
+            let allHabits = try service.fetch(of: Habit.self, sortDescriptors: [])
             todayHabits = allHabits.filter { ($0.isScheduledForToday) }
         } catch {
             errorMessage = "Failed to load today's habits: \(error.localizedDescription)"

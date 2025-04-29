@@ -10,11 +10,7 @@ import SwiftData
 
 struct AddHabitView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: AddHabitViewModel
-
-    init(modelContext: ModelContext) {
-        _viewModel = StateObject(wrappedValue: AddHabitViewModel(context: modelContext))
-    }
+    @StateObject private var viewModel = AddHabitViewModel()
 
     var body: some View {
         NavigationStack {
