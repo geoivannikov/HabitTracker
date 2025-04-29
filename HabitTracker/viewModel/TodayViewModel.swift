@@ -11,7 +11,7 @@ import SwiftUI
 
 @MainActor
 final class TodayViewModel: ObservableObject {
-    @Published private(set) var todayHabits: [Habit] = []
+    @Published var todayHabits: [Habit] = []
     @Published var errorMessage: String?
 
     private let service: DatabaseServiceProtocol = DIContainer.shared.resolve()

@@ -7,6 +7,14 @@
 
 import UserNotifications
 
+protocol UNUserNotificationCenterProtocol {
+    func requestAuthorization(options: UNAuthorizationOptions) async throws -> Bool
+    func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)?)
+}
+
+extension UNUserNotificationCenter: UNUserNotificationCenterProtocol {}
+
+
 protocol NotificationServiceProtocol {
     func requestPermission() async throws
     func scheduleHabitReminder(habit: Habit) throws
@@ -14,13 +22,16 @@ protocol NotificationServiceProtocol {
 
 final class NotificationService: NotificationServiceProtocol {
     static let shared = NotificationService()
-    
-    private init() {}
-    
-    func requestPermission() async throws {
-        try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+    private let center: UNUserNotificationCenterProtocol
+
+    init(center: UNUserNotificationCenterProtocol = UNUserNotificationCenter.current()) {
+        self.center = center
     }
-    
+
+    func requestPermission() async throws {
+        _ = try await center.requestAuthorization(options: [.alert, .sound, .badge])
+    }
+
     func scheduleHabitReminder(habit: Habit) throws {
         guard let reminderTime = habit.reminderTime else { return }
 
@@ -41,7 +52,7 @@ final class NotificationService: NotificationServiceProtocol {
                 trigger: trigger
             )
 
-            UNUserNotificationCenter.current().add(request)
+            center.add(request, withCompletionHandler: nil)
         }
     }
 }

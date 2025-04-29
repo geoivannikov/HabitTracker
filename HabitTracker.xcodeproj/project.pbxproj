@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		823934D32DC1704700BE8756 /* HabitModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823934D22DC1704600BE8756 /* HabitModelSpec.swift */; };
 		824801DF2DC00AB3002F990C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801DE2DC00AB2002F990C /* NotificationService.swift */; };
 		824801E42DC01537002F990C /* ErrorAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801E32DC01537002F990C /* ErrorAlertModifier.swift */; };
 		824801E62DC01549002F990C /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824801E52DC01540002F990C /* View+.swift */; };
@@ -20,9 +21,7 @@
 		827FD2712DB8266600ED861E /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD26C2DB8266600ED861E /* Habit.swift */; };
 		827FD2722DB8266600ED861E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827FD2632DB8266600ED861E /* Preview Assets.xcassets */; };
 		827FD2732DB8266600ED861E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827FD2672DB8266600ED861E /* Assets.xcassets */; };
-		827FD2772DB8266900ED861E /* HabitTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2752DB8266900ED861E /* HabitTrackerTests.swift */; };
 		827FD27B2DB8266B00ED861E /* HabitTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */; };
-		827FD27C2DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2792DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift */; };
 		827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2812DB826B900ED861E /* TodayViewModel.swift */; };
 		827FD2842DB82A0300ED861E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2832DB82A0000ED861E /* DatabaseService.swift */; };
 		827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2852DB82E3B00ED861E /* SettingsView.swift */; };
@@ -34,6 +33,18 @@
 		827FD2932DB8370400ED861E /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2922DB8370400ED861E /* StatsViewModel.swift */; };
 		827FD2952DB9792700ED861E /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2942DB9792600ED861E /* DatabaseModel.swift */; };
 		827FD2972DB9868D00ED861E /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */; };
+		8288A0AD2DC131C4003DEBBF /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 8288A0AC2DC131C4003DEBBF /* Quick */; };
+		8288A0AF2DC131C4003DEBBF /* QuickLint in Frameworks */ = {isa = PBXBuildFile; productRef = 8288A0AE2DC131C4003DEBBF /* QuickLint */; };
+		8288A0B42DC131D6003DEBBF /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 8288A0B32DC131D6003DEBBF /* Nimble */; };
+		8288A0B72DC132FD003DEBBF /* MockDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0B62DC132FC003DEBBF /* MockDatabaseService.swift */; };
+		8288A0B92DC1336B003DEBBF /* TodayViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0B82DC13369003DEBBF /* TodayViewModelSpec.swift */; };
+		8288A0BF2DC13988003DEBBF /* MockNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0BE2DC13987003DEBBF /* MockNotificationService.swift */; };
+		8288A0C12DC139F3003DEBBF /* AddHabitViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0C02DC139F2003DEBBF /* AddHabitViewModelSpec.swift */; };
+		8288A0C32DC13CC1003DEBBF /* StatsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0C22DC13CC0003DEBBF /* StatsViewModelSpec.swift */; };
+		8288A0C52DC13D42003DEBBF /* SettingsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0C42DC13D41003DEBBF /* SettingsViewModelSpec.swift */; };
+		8288A0C82DC13DCC003DEBBF /* DatabaseServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0C72DC13DCB003DEBBF /* DatabaseServiceSpec.swift */; };
+		8288A0CA2DC13F11003DEBBF /* MockUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0C92DC13EFA003DEBBF /* MockUserNotificationCenter.swift */; };
+		8288A0CC2DC13F5D003DEBBF /* NotificationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8288A0CB2DC13F5C003DEBBF /* NotificationServiceSpec.swift */; };
 		829FF5B62DC122780004A1CD /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829FF5B52DC122770004A1CD /* Inject.swift */; };
 		82E8E30E2DBD5D9100136A04 /* HabitClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 82E8E30D2DBD5D9000136A04 /* HabitClassifier.mlmodel */; };
 		82E8E3102DBD5EAB00136A04 /* HabitCategoryPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8E30F2DBD5EA800136A04 /* HabitCategoryPredictor.swift */; };
@@ -58,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		823934D22DC1704600BE8756 /* HabitModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModelSpec.swift; sourceTree = "<group>"; };
 		824801DE2DC00AB2002F990C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		824801E32DC01537002F990C /* ErrorAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertModifier.swift; sourceTree = "<group>"; };
 		824801E52DC01540002F990C /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -76,9 +88,7 @@
 		827FD26A2DB8266600ED861E /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
 		827FD26B2DB8266600ED861E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827FD26C2DB8266600ED861E /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
-		827FD2752DB8266900ED861E /* HabitTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerTests.swift; sourceTree = "<group>"; };
 		827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerUITests.swift; sourceTree = "<group>"; };
-		827FD2792DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		827FD2812DB826B900ED861E /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		827FD2832DB82A0000ED861E /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		827FD2852DB82E3B00ED861E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -90,6 +100,15 @@
 		827FD2922DB8370400ED861E /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		827FD2942DB9792600ED861E /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		827FD2962DB9868D00ED861E /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
+		8288A0B62DC132FC003DEBBF /* MockDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseService.swift; sourceTree = "<group>"; };
+		8288A0B82DC13369003DEBBF /* TodayViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModelSpec.swift; sourceTree = "<group>"; };
+		8288A0BE2DC13987003DEBBF /* MockNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationService.swift; sourceTree = "<group>"; };
+		8288A0C02DC139F2003DEBBF /* AddHabitViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModelSpec.swift; sourceTree = "<group>"; };
+		8288A0C22DC13CC0003DEBBF /* StatsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModelSpec.swift; sourceTree = "<group>"; };
+		8288A0C42DC13D41003DEBBF /* SettingsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelSpec.swift; sourceTree = "<group>"; };
+		8288A0C72DC13DCB003DEBBF /* DatabaseServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceSpec.swift; sourceTree = "<group>"; };
+		8288A0C92DC13EFA003DEBBF /* MockUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserNotificationCenter.swift; sourceTree = "<group>"; };
+		8288A0CB2DC13F5C003DEBBF /* NotificationServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceSpec.swift; sourceTree = "<group>"; };
 		829FF5B52DC122770004A1CD /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		82E8E30D2DBD5D9000136A04 /* HabitClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HabitClassifier.mlmodel; sourceTree = "<group>"; };
 		82E8E30F2DBD5EA800136A04 /* HabitCategoryPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCategoryPredictor.swift; sourceTree = "<group>"; };
@@ -108,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8288A0AD2DC131C4003DEBBF /* Quick in Frameworks */,
+				8288A0B42DC131D6003DEBBF /* Nimble in Frameworks */,
+				8288A0AF2DC131C4003DEBBF /* QuickLint in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		823934D12DC1702C00BE8756 /* modelTests */ = {
+			isa = PBXGroup;
+			children = (
+				823934D22DC1704600BE8756 /* HabitModelSpec.swift */,
+			);
+			path = modelTests;
+			sourceTree = "<group>";
+		};
 		824801E02DC01290002F990C /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +233,10 @@
 		827FD2762DB8266900ED861E /* HabitTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				827FD2752DB8266900ED861E /* HabitTrackerTests.swift */,
+				8288A0B52DC132F4003DEBBF /* mock */,
+				823934D12DC1702C00BE8756 /* modelTests */,
+				8288A0C62DC13DB9003DEBBF /* serviceTests */,
+				8288A0BD2DC13922003DEBBF /* viewModelTests */,
 			);
 			path = HabitTrackerTests;
 			sourceTree = "<group>";
@@ -212,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */,
-				827FD2792DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift */,
 			);
 			path = HabitTrackerUITests;
 			sourceTree = "<group>";
@@ -248,6 +280,36 @@
 				827FD28E2DB8359A00ED861E /* SettingsViewModel.swift */,
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		8288A0B52DC132F4003DEBBF /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				8288A0C92DC13EFA003DEBBF /* MockUserNotificationCenter.swift */,
+				8288A0BE2DC13987003DEBBF /* MockNotificationService.swift */,
+				8288A0B62DC132FC003DEBBF /* MockDatabaseService.swift */,
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
+		8288A0BD2DC13922003DEBBF /* viewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				8288A0C42DC13D41003DEBBF /* SettingsViewModelSpec.swift */,
+				8288A0C22DC13CC0003DEBBF /* StatsViewModelSpec.swift */,
+				8288A0C02DC139F2003DEBBF /* AddHabitViewModelSpec.swift */,
+				8288A0B82DC13369003DEBBF /* TodayViewModelSpec.swift */,
+			);
+			path = viewModelTests;
+			sourceTree = "<group>";
+		};
+		8288A0C62DC13DB9003DEBBF /* serviceTests */ = {
+			isa = PBXGroup;
+			children = (
+				8288A0CB2DC13F5C003DEBBF /* NotificationServiceSpec.swift */,
+				8288A0C72DC13DCB003DEBBF /* DatabaseServiceSpec.swift */,
+			);
+			path = serviceTests;
 			sourceTree = "<group>";
 		};
 		82E8E30C2DBD5D4E00136A04 /* ml */ = {
@@ -296,6 +358,9 @@
 			);
 			name = HabitTrackerTests;
 			packageProductDependencies = (
+				8288A0AC2DC131C4003DEBBF /* Quick */,
+				8288A0AE2DC131C4003DEBBF /* QuickLint */,
+				8288A0B32DC131D6003DEBBF /* Nimble */,
 			);
 			productName = HabitTrackerTests;
 			productReference = 827FD22E2DB4486E00ED861E /* HabitTrackerTests.xctest */;
@@ -353,6 +418,10 @@
 			);
 			mainGroup = 827FD2112DB4486B00ED861E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8288A0AB2DC131C4003DEBBF /* XCRemoteSwiftPackageReference "Quick" */,
+				8288A0B22DC131D6003DEBBF /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 827FD21B2DB4486B00ED861E /* Products */;
 			projectDirPath = "";
@@ -429,7 +498,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				827FD2772DB8266900ED861E /* HabitTrackerTests.swift in Sources */,
+				8288A0CA2DC13F11003DEBBF /* MockUserNotificationCenter.swift in Sources */,
+				823934D32DC1704700BE8756 /* HabitModelSpec.swift in Sources */,
+				8288A0B92DC1336B003DEBBF /* TodayViewModelSpec.swift in Sources */,
+				8288A0CC2DC13F5D003DEBBF /* NotificationServiceSpec.swift in Sources */,
+				8288A0B72DC132FD003DEBBF /* MockDatabaseService.swift in Sources */,
+				8288A0C52DC13D42003DEBBF /* SettingsViewModelSpec.swift in Sources */,
+				8288A0C12DC139F3003DEBBF /* AddHabitViewModelSpec.swift in Sources */,
+				8288A0BF2DC13988003DEBBF /* MockNotificationService.swift in Sources */,
+				8288A0C82DC13DCC003DEBBF /* DatabaseServiceSpec.swift in Sources */,
+				8288A0C32DC13CC1003DEBBF /* StatsViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +516,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				827FD27B2DB8266B00ED861E /* HabitTrackerUITests.swift in Sources */,
-				827FD27C2DB8266B00ED861E /* HabitTrackerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +736,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thalesgroup.dis.ibs.biometrics.sdklib.fingerSample.HabitTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -678,6 +759,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thalesgroup.dis.ibs.biometrics.sdklib.fingerSample.HabitTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -759,6 +844,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8288A0AB2DC131C4003DEBBF /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8288A0B22DC131D6003DEBBF /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8288A0AC2DC131C4003DEBBF /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8288A0AB2DC131C4003DEBBF /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		8288A0AE2DC131C4003DEBBF /* QuickLint */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8288A0AB2DC131C4003DEBBF /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = QuickLint;
+		};
+		8288A0B32DC131D6003DEBBF /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8288A0B22DC131D6003DEBBF /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 827FD2122DB4486B00ED861E /* Project object */;
 }
