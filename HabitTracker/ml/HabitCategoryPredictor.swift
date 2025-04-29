@@ -14,7 +14,7 @@ class HabitCategoryPredictor {
         do {
             self.model = try HabitClassifier(configuration: .init())
         } catch {
-            fatalError("Не удалось загрузить модель: \(error)")
+            fatalError("Failed to load model: \(error)")
         }
     }
 

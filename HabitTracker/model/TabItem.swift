@@ -9,7 +9,9 @@ enum TabItem: String, CaseIterable {
     case today = "Today"
     case stats = "Stats"
     case settings = "Settings"
+}
 
+extension TabItem {
     var systemImageName: String {
         switch self {
         case .today: return "calendar"

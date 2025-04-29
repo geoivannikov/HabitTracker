@@ -11,7 +11,9 @@ enum ThemeMode: String, CaseIterable, Identifiable {
     case system
     case light
     case dark
+}
 
+extension ThemeMode {
     var id: String { rawValue }
 
     var label: String {
