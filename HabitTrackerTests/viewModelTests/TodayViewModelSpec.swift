@@ -28,7 +28,7 @@ final class TodayViewModelSpec: QuickSpec {
                 it("populates todayHabits") {
                     let habit = Habit(name: "Drink Water",
                                       category: .health,
-                                      scheduledDays: [2],
+                                      scheduledDays: Array(1...7),
                                       reminderTime: nil)
                     mockDatabaseService.fetchedHabits = [habit]
                     viewModel.loadTodayHabits()

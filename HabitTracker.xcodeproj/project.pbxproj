@@ -21,7 +21,6 @@
 		827FD2712DB8266600ED861E /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD26C2DB8266600ED861E /* Habit.swift */; };
 		827FD2722DB8266600ED861E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827FD2632DB8266600ED861E /* Preview Assets.xcassets */; };
 		827FD2732DB8266600ED861E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827FD2672DB8266600ED861E /* Assets.xcassets */; };
-		827FD27B2DB8266B00ED861E /* HabitTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */; };
 		827FD2822DB826BA00ED861E /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2812DB826B900ED861E /* TodayViewModel.swift */; };
 		827FD2842DB82A0300ED861E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2832DB82A0000ED861E /* DatabaseService.swift */; };
 		827FD2862DB82E3C00ED861E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827FD2852DB82E3B00ED861E /* SettingsView.swift */; };
@@ -59,13 +58,6 @@
 			remoteGlobalIDString = 827FD2192DB4486B00ED861E;
 			remoteInfo = HabitTracker;
 		};
-		827FD2392DB4486E00ED861E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 827FD2122DB4486B00ED861E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 827FD2192DB4486B00ED861E;
-			remoteInfo = HabitTracker;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +71,6 @@
 		8262660D2DC02ABA00F35F06 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		827FD21A2DB4486B00ED861E /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827FD22E2DB4486E00ED861E /* HabitTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		827FD2382DB4486E00ED861E /* HabitTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		827FD2632DB8266600ED861E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		827FD2652DB8266600ED861E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		827FD2672DB8266600ED861E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +79,6 @@
 		827FD26A2DB8266600ED861E /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
 		827FD26B2DB8266600ED861E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827FD26C2DB8266600ED861E /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
-		827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerUITests.swift; sourceTree = "<group>"; };
 		827FD2812DB826B900ED861E /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		827FD2832DB82A0000ED861E /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		827FD2852DB82E3B00ED861E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -133,13 +123,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		827FD2352DB4486E00ED861E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -176,7 +159,6 @@
 			children = (
 				827FD26D2DB8266600ED861E /* HabitTracker */,
 				827FD2762DB8266900ED861E /* HabitTrackerTests */,
-				827FD27A2DB8266B00ED861E /* HabitTrackerUITests */,
 				827FD21B2DB4486B00ED861E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,7 +168,6 @@
 			children = (
 				827FD21A2DB4486B00ED861E /* HabitTracker.app */,
 				827FD22E2DB4486E00ED861E /* HabitTrackerTests.xctest */,
-				827FD2382DB4486E00ED861E /* HabitTrackerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,14 +220,6 @@
 				8288A0BD2DC13922003DEBBF /* viewModelTests */,
 			);
 			path = HabitTrackerTests;
-			sourceTree = "<group>";
-		};
-		827FD27A2DB8266B00ED861E /* HabitTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				827FD2782DB8266B00ED861E /* HabitTrackerUITests.swift */,
-			);
-			path = HabitTrackerUITests;
 			sourceTree = "<group>";
 		};
 		827FD27D2DB8267400ED861E /* model */ = {
@@ -366,26 +339,6 @@
 			productReference = 827FD22E2DB4486E00ED861E /* HabitTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		827FD2372DB4486E00ED861E /* HabitTrackerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 827FD2492DB4486E00ED861E /* Build configuration list for PBXNativeTarget "HabitTrackerUITests" */;
-			buildPhases = (
-				827FD2342DB4486E00ED861E /* Sources */,
-				827FD2352DB4486E00ED861E /* Frameworks */,
-				827FD2362DB4486E00ED861E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				827FD23A2DB4486E00ED861E /* PBXTargetDependency */,
-			);
-			name = HabitTrackerUITests;
-			packageProductDependencies = (
-			);
-			productName = HabitTrackerUITests;
-			productReference = 827FD2382DB4486E00ED861E /* HabitTrackerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -400,10 +353,6 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					827FD22D2DB4486E00ED861E = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 827FD2192DB4486B00ED861E;
-					};
-					827FD2372DB4486E00ED861E = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 827FD2192DB4486B00ED861E;
 					};
@@ -429,7 +378,6 @@
 			targets = (
 				827FD2192DB4486B00ED861E /* HabitTracker */,
 				827FD22D2DB4486E00ED861E /* HabitTrackerTests */,
-				827FD2372DB4486E00ED861E /* HabitTrackerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -445,13 +393,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		827FD22C2DB4486E00ED861E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		827FD2362DB4486E00ED861E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -511,14 +452,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		827FD2342DB4486E00ED861E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				827FD27B2DB8266B00ED861E /* HabitTrackerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -526,11 +459,6 @@
 			isa = PBXTargetDependency;
 			target = 827FD2192DB4486B00ED861E /* HabitTracker */;
 			targetProxy = 827FD22F2DB4486E00ED861E /* PBXContainerItemProxy */;
-		};
-		827FD23A2DB4486E00ED861E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 827FD2192DB4486B00ED861E /* HabitTracker */;
-			targetProxy = 827FD2392DB4486E00ED861E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -770,40 +698,6 @@
 			};
 			name = Release;
 		};
-		827FD24A2DB4486E00ED861E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JH59DJ45H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thalesgroup.dis.ibs.biometrics.sdklib.fingerSample.HabitTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HabitTracker;
-			};
-			name = Debug;
-		};
-		827FD24B2DB4486E00ED861E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JH59DJ45H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thalesgroup.dis.ibs.biometrics.sdklib.fingerSample.HabitTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HabitTracker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -830,15 +724,6 @@
 			buildConfigurations = (
 				827FD2472DB4486E00ED861E /* Debug */,
 				827FD2482DB4486E00ED861E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		827FD2492DB4486E00ED861E /* Build configuration list for PBXNativeTarget "HabitTrackerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				827FD24A2DB4486E00ED861E /* Debug */,
-				827FD24B2DB4486E00ED861E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
